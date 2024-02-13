@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Résultat</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+          <a class="navbar-brand" href="#">Production de Thé</a>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="">Accueil</a>
+              </li>
+              
+            </ul>
+          </div>
+        </div>
+    </nav>
+
+    <header class="bg-primary text-white text-center py-5">
+        <p class="lead">Découvrez notre Thé de qualite.</p>
+      </header>
+
+  <div class="container">
+    <h1 class="mt-5">Page de résultat</h1>
+    <form>
+      <div class="mb-3">
+        <label for="dateDebut" class="form-label">Date de début</label>
+        <input type="date" class="form-control" id="dateDebut" required>
+      </div>
+      <div class="mb-3">
+        <label for="dateFin" class="form-label">Date de fin</label>
+        <input type="date" class="form-control" id="dateFin" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Calculer</button>
+    </form>
+
+
+    
+    <div id="resultats" class="mt-5">
+      <h2>Résultats Global</h2>
+      <p id="poidsTotalCueillette"></p>
+      <p id="poidsRestantParcelles"></p>
+      <p id="coutRevient"></p>
+    </div>
+  </div>
+
+  <footer class="footer mt-auto py-3 bg-light">
+    <div class="container text-center">
+      <span class="text-muted">HAJALALAINA Fanomezantsoa.ETU002691 , RANDRIANANDRIANINA Zo Heriniaina Antonio.ETU002772 , RANAIVOSON Ny Hoavisoa Misandratra.ETU002556</span>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelector('form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      var dateDebut = new Date(document.getElementById('dateDebut').value);
+      var dateFin = new Date(document.getElementById('dateFin').value);
+
+      var poidsTotalCueillette = 0;
+      var poidsRestantParcelles = 0; 
+      var coutRevient = 0; 
+
+      document.getElementById('poidsTotalCueillette').textContent = "Poids total de la cueillette : " + poidsTotalCueillette + " kg";
+      document.getElementById('poidsRestantParcelles').textContent = "Poids restant sur les parcelles à la date de fin : " + poidsRestantParcelles + " kg";
+      document.getElementById('coutRevient').textContent = "Coût de revient par kg : " + coutRevient + " €/kg";
+    });
+  </script>
+</body>
+</html>
